@@ -1,23 +1,12 @@
 import PropTypes from "prop-types";
-import dayjs from "dayjs";
+import Watch from "./Watch";
 
 export default function WatchesList({list, onDelete: handleDelete}) {
 
-  const listItems = list.map(item =>
-    <div className="clock">
-      <div className="title">{item.title}</div>
-      <div className="hero-circle" key={item.id}>
-        <div className="hero-face">
-          <div id="hour" className="hero-hour"></div>
-          <div id="minute" className="hero-minute"></div>
-          <div id="second" className="hero-second"></div>
-        </div>
-      </div>
-    </div>
-  )
+  const listItems = list.map(item => <Watch key={item.id} item={item} onDelete={handleDelete}/>)
 
   return(
-    <div className="training">
+    <div className="watches">
       {listItems}
     </div>
   )

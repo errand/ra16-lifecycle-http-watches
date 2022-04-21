@@ -20,8 +20,8 @@ export default function Form({onAdd}) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    const training = new Watch(form.title, form.timeZone)
-    onAdd(training)
+    const watch = new Watch(form.title, form.timeZone)
+    onAdd(watch)
     setForm({
       title: '',
       timeZone: '',

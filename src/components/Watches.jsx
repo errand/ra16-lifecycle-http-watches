@@ -7,6 +7,7 @@ export default function Watches() {
   const [watches, setWatches] = useState([])
 
   const handleAdd = watch => {
+    console.log(watch)
     setWatches(prevState => [...prevState, watch]);
   }
 
