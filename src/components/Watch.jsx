@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc"
+import PropTypes from "prop-types";
 dayjs.extend(utc)
 
 export default function Watch({item, onDelete: handleDelete}) {
@@ -15,8 +16,6 @@ export default function Watch({item, onDelete: handleDelete}) {
     const hours = parseInt(dayjs.utc(time).format('h')) + parseInt(item.timeZone)
     const minutes = dayjs(time).format('mm')
     const seconds = dayjs(time).format('ss')
-
-    console.log(hours)
 
     const clock = document.querySelector(`[data-clock-id="${item.id}"]`)
 
@@ -48,5 +47,9 @@ export default function Watch({item, onDelete: handleDelete}) {
       </div>
     </div>
   )
-
 }
+
+Watch.propTypes = {
+  item: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
