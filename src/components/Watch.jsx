@@ -30,7 +30,7 @@ export default function Watch({item, onDelete: handleDelete}) {
     return () => {
       clearInterval(intervalId);
     };
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time])
 
   return (

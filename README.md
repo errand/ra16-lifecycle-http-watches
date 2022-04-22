@@ -1,4 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/8rts3hdodo22u9op?svg=true)](https://ci.appveyor.com/project/errand/ra16-forms-hex2rgb)
+[![Build status](https://ci.appveyor.com/api/projects/status/xm3xva2quu3at6ar?svg=true)](https://ci.appveyor.com/project/errand/ra16-lifecycle-http-watches)
+
+[GH-Pages](https://errand.github.io/ra16-lifecycle-http-watches/)
 
 
 ## Available Scripts
