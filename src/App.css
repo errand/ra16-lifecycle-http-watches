@@ -62,7 +62,11 @@ body {
     height: 100%;
 }
 
-.hero-hour {
+.hand {
+    box-shadow: 0 1px 8px rgb(34 34 34 / 30%), 0 1px 8px rgb(34 34 34 / 30%);
+}
+
+.hour {
     width: 0;
     height: 0;
     position: absolute;
@@ -76,7 +80,7 @@ body {
     border-radius: 4px 0 0 4px;
 }
 
-.hero-minute {
+.minute {
     width: 0;
     height: 0;
     position: absolute;
@@ -90,7 +94,7 @@ body {
     border-radius: 3px 3px 0 0;
 }
 
-.hero-second {
+.second {
     width: 0;
     height: 0;
     position: absolute;
@@ -101,4 +105,16 @@ body {
     background: #fff;
     -ms-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: -10px;
 }

@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc"
+dayjs.extend(utc)
 
 export default function Watch({item, onDelete: handleDelete}) {
 
@@ -10,19 +12,19 @@ export default function Watch({item, onDelete: handleDelete}) {
       setTime(new Date())
     }, 1000)
 
-    const hours = parseInt(dayjs(time).format('h')) + parseInt(item.timeZone)
+    const hours = parseInt(dayjs.utc(time).format('h')) + parseInt(item.timeZone)
     const minutes = dayjs(time).format('mm')
     const seconds = dayjs(time).format('ss')
 
-    console.log(new Date().toLocaleString("ru-RU", {timeZone: "Africa/Abidjan"}))
+    console.log(hours)
 
     const clock = document.querySelector(`[data-clock-id="${item.id}"]`)
 
-    const hoursHand = clock.querySelector('.hero-hour')
-    const minutesHand = clock.querySelector('.hero-minute')
-    const secondsHand = clock.querySelector('.hero-second')
+    const hoursHand = clock.querySelector('.hour')
+    const minutesHand = clock.querySelector('.minute')
+    const secondsHand = clock.querySelector('.second')
 
-    hoursHand.style.transform = `rotate(${hours * 30}deg)`
+    hoursHand.style.transform = `rotate(${(hours + 3) * 30}deg)`
     minutesHand.style.transform = `rotate(${minutes * 6}deg)`
     secondsHand.style.transform = `rotate(${seconds * 6}deg)`
 
@@ -38,9 +40,10 @@ export default function Watch({item, onDelete: handleDelete}) {
       <div className="delete" onClick={() => handleDelete(item.id)}>X</div>
       <div className="hero-circle">
         <div className="hero-face">
-          <div className="hero-hour"></div>
-          <div className="hero-minute"></div>
-          <div className="hero-second"></div>
+          <div className="hand hour"></div>
+          <div className="hand minute"></div>
+          <div className="hand second"></div>
+          <div className="center"></div>
         </div>
       </div>
     </div>
