@@ -6,13 +6,15 @@ export default function Watch({item, onDelete: handleDelete}) {
   const [time, setTime] = useState(new Date())
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setTime(new Date())
     }, 1000)
 
-    const hours = dayjs(time.getHours() + item.timeZone).format('h')
+    const hours = parseInt(dayjs(time).format('h')) + parseInt(item.timeZone)
     const minutes = dayjs(time).format('mm')
     const seconds = dayjs(time).format('ss')
+
+    console.log(new Date().toLocaleString("ru-RU", {timeZone: "Africa/Abidjan"}))
 
     const clock = document.querySelector(`[data-clock-id="${item.id}"]`)
 
@@ -20,9 +22,13 @@ export default function Watch({item, onDelete: handleDelete}) {
     const minutesHand = clock.querySelector('.hero-minute')
     const secondsHand = clock.querySelector('.hero-second')
 
-    hoursHand.style.transform = `rotate(${hours * 30 + minutes * 0.5 - 180}deg)`
-    minutesHand.style.transform = `rotate(${minutes * 6 - 180}deg)`
-    secondsHand.style.transform = `rotate(${seconds * 6 - 180}deg)`
+    hoursHand.style.transform = `rotate(${hours * 30}deg)`
+    minutesHand.style.transform = `rotate(${minutes * 6}deg)`
+    secondsHand.style.transform = `rotate(${seconds * 6}deg)`
+
+    return () => {
+      clearInterval(intervalId);
+    };
 
   }, [time])
 
