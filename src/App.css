@@ -27,10 +27,9 @@ body {
     align-items: center;
 }
 
-.wrapper--inner {
-    width: 200px;
+.watches {
+    display: flex;
 }
-
 .watch {
     padding-top: 2rem;
 }
